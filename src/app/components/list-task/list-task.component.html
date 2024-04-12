@@ -1,0 +1,38 @@
+<div>
+  <h1 class="text-center">{{title}}</h1>
+  <img width="100%" height="300" [src]="imageTitle" alt="">
+  <div class="row my-5 mx-4">
+    <div class="col-10">
+      <input class="form-control mb-4" [(ngModel)]="newTask" placeholder="New Task">
+    </div>
+    <div class="col-2">
+      <button class="btn btn-primary" (click)="addNewTask()">Add new task</button>
+    </div>
+  </div>
+
+  <div class="row mx-4">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of tasks; track $index) {
+          <tr>
+            <td>{{$index}}</td>
+            <td>{{item}}</td>
+            <td>
+              <button class="btn btn-primary mx-2">Edit</button>
+              <button class="btn btn-danger" (click)="removeTask($index)">Remove</button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
